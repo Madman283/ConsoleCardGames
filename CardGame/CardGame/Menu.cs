@@ -13,7 +13,7 @@ namespace CardGame
         Game game;
         public void Start()
         {
-            Print("Please select an options");
+            Print("What game would you like to play?");
             for (int i = 0; i < options.Count; i++)
             {
                 Print($"{i + 1} {options[i]}");

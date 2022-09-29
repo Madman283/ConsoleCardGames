@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static CardGame.Utility;
+using static System.Console;
 
 namespace CardGame
 {
@@ -11,8 +12,8 @@ namespace CardGame
     {
         public override void GameStart()
         {
-            
-           
+
+            Clear();
             base.GameStart();
             //custom content
             deck.ConstructDeck(13, new string[]{"Apples", "Oranges"} );
@@ -36,7 +37,7 @@ namespace CardGame
             Card a = deck.Draw();
             Print($"The first card drawn is... {a.Value} of {a.Suit}");
             Print("Is the next card the same or different suit? Y/N?");
-            input = Console.ReadLine();
+            input = ReadLine();
             Card b = deck.Draw();
             Print($"The second card drawn is... {b.Value} of {b.Suit}");
             if (a.Suit == b.Suit && input.ToUpper() == "Y")
@@ -56,6 +57,8 @@ namespace CardGame
                 Print("Sorry that is incorrect...");
             }
             Print($"Your score is {player.score}!");
+            Pause();
+            Clear();
         }
 
 
