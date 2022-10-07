@@ -16,6 +16,48 @@ namespace CardGame
             Clear();
             base.GameStart();
             //custom content
+
+            deck.ConstructDeck(13, new string[] { "Clubs", "Spades", "Hearts", "Diamonds" });
+            deck.Shuffle();
+
+            while (deck.cards.Count >= 2)
+            {
+                GamePlay();
+            }
+
         }
+
+        private void GamePlay()
+        {
+            string input;
+
+            Card a = deck.Draw();
+            Print($"The first card drawn is... {a.Value} of {a.Suit}");
+            Print("Is the next card Higher or Lower? H/L?");
+            input = ReadLine();
+            Card b = deck.Draw();
+            Print($"The second card drawn is... {b.Value} of {b.Suit}");
+            if (a.Value < b.Value && input.ToUpper() == "H")
+            {
+                //player gets point
+                player.score++;
+                Print("You are correct!");
+            }
+            else if (a.Value > b.Value && input.ToUpper() == "L")
+            {
+                //player gets point
+                player.score++;
+                Print("You are correct!");
+            }
+            else
+            {
+                Print("Sorry that is incorrect...");
+            }
+            Print($"Your score is {player.score}!");
+            Pause();
+            Clear();
+        }
+
+
     }
 }

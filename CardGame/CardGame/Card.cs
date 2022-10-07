@@ -20,6 +20,11 @@ namespace CardGame
             Value = value;
         }
 
+        public string ShowCard()
+        {
+            return $"{Value} {Suit}";
+        }
+
 
 
     }

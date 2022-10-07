@@ -19,7 +19,7 @@ namespace CardGame
             ReadKey();
         }
 
-
+        
 
     }
 }

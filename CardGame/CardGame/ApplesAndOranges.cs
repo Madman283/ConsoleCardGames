@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using static CardGame.Utility;
@@ -10,6 +12,8 @@ namespace CardGame
 {
     internal class ApplesAndOranges:Game
     {
+
+       
         public override void GameStart()
         {
 
@@ -24,6 +28,10 @@ namespace CardGame
             {
                 GamePlay();
             }
+            //if (deck.cards.Count == 2)
+            //{
+            //    GameEnd();
+            //}
 
            //Game over 
 
@@ -60,6 +68,14 @@ namespace CardGame
             Pause();
             Clear();
         }
+
+        //public void GameEnd()
+        //{
+        //    Print($"The game is complete! Your score is {player.score}!");
+        //    Pause();
+        //    //menu.GameStart();
+
+        //}
 
 
     }

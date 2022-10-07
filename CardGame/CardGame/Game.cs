@@ -9,6 +9,7 @@ namespace CardGame
 {
     internal class Game
     {
+        public Player dealer = new Player();
         public Player player = new Player();
         public Deck deck = new Deck();
 
