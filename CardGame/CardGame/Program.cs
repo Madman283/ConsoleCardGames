@@ -17,6 +17,29 @@ namespace CardGame
             menu.Start();
             
         }
+        
+        /*
+         Project 1: Game Framework : Console Card Games
+         
+        Brandon Figueroa
+        PROG 201 - 01
+        10/15/2022
+         
+        Credits:
+        Jenell Baxter (teacher) - Helped with all classes and critical game functionality.
+        
+        Brian Rosner (student) - Helped create this line of code in class "HighestMatch" 102 -107
+        private void CheckHandValue()
+        {
+            for (int i = 0; i < player.hand.Count; i++)
+            {
+                handValue += player.hand[i].Value;
+            }
+
+
+        */
+
+
     }
 
 }
