@@ -28,7 +28,11 @@ namespace CardGame
             {
                 GamePlay();
             }
-            
+            if (deck.cards.Count <= 2)
+            {
+                EndResult();
+            }
+
 
 
         }
@@ -68,9 +72,19 @@ namespace CardGame
 
         private void EndResult()
         {
+            Print("You did it! You finished the game.");
+            Print($"You finished the game with {player.score} points!");
+            Pause();
+            StartNewGame();
 
 
-            Print("This is the end");
+        }
+        private void StartNewGame()
+        {
+            ReadKey(true);
+            Clear();
+            Menu menu2 = new Menu();
+            menu2.Start();
 
         }
 

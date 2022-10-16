@@ -98,15 +98,6 @@ namespace CardGame
             }
         }
         
-        private void EndResult()
-        {
-            //CheckDealerValue();
-            CheckHandValue();
-            Print($"Your hand value was {handValue}.");
-            Print($"Dealer hand value was {dealerValue}.");
-            Print("This is the end");
-            StartNewGame();
-        }
 
         private void CheckHandValue()
         {
@@ -120,8 +111,31 @@ namespace CardGame
                 dealerValue += dealer.hand[i].Value;
             }
 
+            if (handValue >= dealerValue)
+            {
+                Print("You Win!");
+            }
+            else
+            {
+                Print("You lose, better luck next time...");
+            }
+            if (handValue == dealerValue)
+            {
+                Print("It is a Draw! ");
+            }
+
         }
-        
+        private void EndResult()
+        {
+
+            CheckHandValue();
+            Print($"Your hand value was {handValue}.");
+            Print($"Dealer hand value was {dealerValue}.");
+            Print("Thanks for playing!");
+            Pause();
+            StartNewGame();
+        }
+
 
         private void StartNewGame()
         {
