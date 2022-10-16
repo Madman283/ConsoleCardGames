@@ -58,6 +58,14 @@ namespace CardGame
             Clear();
         }
 
+        private void EndResult()
+        {
+
+
+            Print("This is the end");
+
+        }
+
 
     }
 }

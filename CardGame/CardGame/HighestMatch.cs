@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -12,8 +13,11 @@ namespace CardGame
 {
     internal class HighestMatch:Game
     {
+       
         bool play = true;
-        
+        int handValue;
+        int dealerValue;
+
         public override void GameStart()
         {
             base.GameStart();
@@ -45,13 +49,7 @@ namespace CardGame
             }
             EndResult();
 
-            //show player his new card and current cards
-            //end round
-
-            //at the end of the game the game will tally up your highest match or highest card available as your final score.
-
-            //10 rounds
-            //custom content
+            
         }
 
         private void Round()
@@ -90,6 +88,7 @@ namespace CardGame
                         break;
                 }
                 player.hand.Add(deck.Draw());
+                Clear();
 
             }
             else
@@ -98,11 +97,39 @@ namespace CardGame
                 play = false;
             }
         }
-
+        
         private void EndResult()
         {
+            //CheckDealerValue();
+            CheckHandValue();
+            Print($"Your hand value was {handValue}.");
+            Print($"Dealer hand value was {dealerValue}.");
             Print("This is the end");
-            
+            StartNewGame();
+        }
+
+        private void CheckHandValue()
+        {
+            for (int i = 0; i < player.hand.Count; i++)
+            {
+                handValue += player.hand[i].Value;
+            }
+
+            for (int i = 0; i < dealer.hand.Count; i++)
+            {
+                dealerValue += dealer.hand[i].Value;
+            }
+
+        }
+        
+
+        private void StartNewGame()
+        {
+            ReadKey(true);
+            Clear();
+            Menu menu2 = new Menu();
+            menu2.Start();
+
         }
 
 
